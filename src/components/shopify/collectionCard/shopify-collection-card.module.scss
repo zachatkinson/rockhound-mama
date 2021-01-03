@@ -1,0 +1,38 @@
+.collectionCard {
+  flex-grow: 1;
+  flex-basis: 50%;
+
+  .collectionCardContent {
+    width: 100%;
+    color: #fff;
+    min-height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0,0,0, 0.2);
+    .collectionCardTitle{
+      text-transform: uppercase;
+    }
+    .collectionCardViewButton {
+      border-radius: 2px;
+      border: 2px solid #fff;
+      padding: 0.5rem;
+      text-transform: uppercase;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      transition: background-color 0.5s ease-in-out;
+
+      &:hover {
+        mix-blend-mode: screen; /* This makes the cutout text possible */
+        color: black;
+        background-color: white;
+
+      }
+    }
+  }
+}

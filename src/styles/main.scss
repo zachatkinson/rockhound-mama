@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Rich Ganbatte";
+  src: url('../fonts/rich-ganbatte.woff');
+}
+.rich-ganbatte{
+  font-family: "Rich Ganbatte", serif;
+  font-weight: 400;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.center-text {
+  text-align: center;
+}
+.header-logo {
+  width: 75px;
+  height: 75px;
+
+  .gatsby-image-wrapper {
+    min-height: 75px;
+  }
+}
+
+.main-footer {
+  background-color: #AB8D3F;
+  color: #F7CB5C;
+  padding: 1rem;
+
+  a {
+    color: #fcfcfc;
+  }
+}
+
+.tree-line {
+  background-color: #020202;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+//ONE TREE PLANTED CALLOUT
+.tree-callout {
+  display: flex;
+  padding: 1rem;
+  background: #020202;
+  color: #fcfcfc;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  .tree-img {
+    width: 100%;
+    height: 100%;
+
+    .gatsby-image-wrapper {
+      border-radius: 50%;
+      min-width: 320px;
+    }
+  }
+
+  .tree-content {
+    padding: 0;
+    h2 {
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      padding: 1rem;
+      h2{
+        text-align: left;
+      }
+    }
+  }
+}
+
+//END ONE TREE PLANTED CALLOUT
+

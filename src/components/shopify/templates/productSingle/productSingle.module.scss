@@ -1,0 +1,40 @@
+.productWrapper{
+  display: grid;
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    .imageGallery{
+      padding: 1rem;
+    }
+
+  }
+  .imageGallery{
+
+  }
+  .productInfo{
+    padding: 1rem;
+    .description{
+      margin-bottom: 2rem;
+    }
+    .tagButton{
+      padding: 0.5rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      border: 2px solid black;
+      color: black;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cartButton{
+      padding: 0.5rem;
+      margin-top: 2rem;
+      border: 2px solid black;
+      color: black;
+      text-decoration: none;
+      width: 100%;
+    }
+    .variantWrapper{
+      margin-bottom: 2rem;
+    }
+  }
+
+}

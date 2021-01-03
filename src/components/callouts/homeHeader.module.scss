@@ -1,0 +1,50 @@
+.homeHeader {
+  .bgImg {
+    background-position: bottom center;
+
+    .homeHeaderContent {
+      width: 100%;
+      min-height: 50vw;
+      padding: 1rem;
+      display: flex;
+      color: #fcfcfc;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+
+      .logoImg {
+        width: 320px;
+        height: 320px;
+
+        .gatsby-image-wrapper {
+          min-width: 320px;
+        }
+      }
+
+      .viewButton {
+        border-radius: 2px;
+        border: 2px solid #fff;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.5s ease-in-out;
+
+        &:hover {
+          mix-blend-mode: screen; /* This makes the cutout text possible */
+          color: black;
+          background-color: white;
+
+        }
+      }
+    }
+
+  }
+}
+

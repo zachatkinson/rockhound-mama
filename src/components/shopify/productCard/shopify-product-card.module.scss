@@ -1,0 +1,72 @@
+.productCard {
+  flex-grow: 1;
+  flex-basis: 50%;
+
+  .productCardContent {
+    width: 100%;
+    color: #fff;
+    min-height: 50vw;
+    @media (min-width: 768px) {
+      min-height: 33vw;
+    }
+    @media (min-width: 992px) {
+      min-height: 25vw;
+    }
+    @media (min-width: 1200px) {
+      min-height: 16.6vw;
+    }
+    * {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .productCardContent {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      transition: background-color 0.5s linear;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .productCardViewButton {
+        border-radius: 2px;
+        border: 2px solid #fff;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.5s ease-in-out;
+
+        &:hover {
+          mix-blend-mode: screen; /* This makes the cutout text possible */
+          color: black;
+          background-color: white;
+
+        }
+      }
+
+      * {
+        animation: fadeIn ease 0.5s;
+        transition: display 0.5s linear;
+        display: block;
+      }
+    }
+
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
