@@ -15,6 +15,7 @@
     "gatsby-plugin-sharp": "^2.11.1",
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-source-shopify": "^3.7.1",
+    "gatsby-theme-shopify-manager": "^0.1.8",
     "gatsby-transformer-sharp": "^2.9.0",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",

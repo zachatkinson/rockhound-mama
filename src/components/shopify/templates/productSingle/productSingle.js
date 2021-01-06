@@ -11,6 +11,8 @@ import styles from './productSingle.module.scss'
 
 import getPrice from "../../utils/getPrice";
 
+import tagHandle from "../../utils/tagHandle";
+
 
 
 const ProductPage = ({ data }) => {
@@ -51,7 +53,7 @@ const ProductPage = ({ data }) => {
 
                             <div className={styles.description} dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}></div>
                         {product.tags.map(tag => (
-                            <Link to={`#`} className={styles.tagButton}>{tag}</Link>
+                            <Link to={`/tag/${tagHandle(tag)}/`} className={styles.tagButton}>{tag}</Link>
                         ))}
                     </div>
                 </div>
