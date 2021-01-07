@@ -13,24 +13,35 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-const Logo = () => {
+const Logo = ({fullLogo}) => {
+
     const data = useStaticQuery(graphql`
         query {
-            placeholderImage: file(relativePath: { eq: "rhm-logo.png" }) {
+            initials: file(relativePath: { eq: "logo-initials.png" }) {
+                childImageSharp {
+                    fluid(maxWidth: 75) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+                
+            }
+            full: file(relativePath: { eq: "logo-fullText.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid
                     }
                 }
+
             }
         }
     `)
+    const output = fullLogo ? data.full.childImageSharp.fluid : data.initials.childImageSharp.fluid
 
-    if (!data?.placeholderImage?.childImageSharp?.fluid) {
+    if (!output) {
         return <div>Picture not found</div>
     }
 
-    return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+    return <Img fluid={output} />
 }
 
 export default Logo

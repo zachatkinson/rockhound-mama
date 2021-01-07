@@ -26,6 +26,14 @@ body {
     .gatsby-image-wrapper {
       height: 75px;
       width: 75px;
+      picture{
+        img{
+          // This is probably going to cause problems.
+          // Refactor sizing issues
+          object-fit: contain !important;
+        }
+      }
+
     }
   }
 }

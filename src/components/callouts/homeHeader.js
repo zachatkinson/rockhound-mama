@@ -29,7 +29,7 @@ const HomeHeader = () => {
             >
                 <div className={styles.homeHeaderContent}>
                     <div className={styles.logoImg}>
-                        <Logo />
+                        <Logo fullLogo />
                     </div>
                     <h1 className={`rich-ganbatte`}>Holiday Packages</h1>
                     <h3 className={`uppercase`}>Calm Your Soul with our New Years Bundles</h3>

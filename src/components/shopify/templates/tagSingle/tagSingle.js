@@ -1,11 +1,9 @@
 import React from 'react'
-import {graphql} from 'gatsby'
 
 import SEO from '../../../seo'
 
 import Layout from '../../../layout'
 
-import ProductGrid from "../../productGrid/shopify-product-grid";
 
 
 
