@@ -49,6 +49,7 @@ const ProductPage = ({ data }) => {
                                 </div>
                             }
                             <Link className={styles.cartButton}>Add to Cart</Link>
+                            <Link className={styles.cartButton}>Buy Now</Link>
                         </form>
 
                             <div className={styles.description} dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}></div>

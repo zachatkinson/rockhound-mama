@@ -22,6 +22,16 @@ const ProductGrid = ({children, currentPage, numPages, collectionHandle}) => {
 
     return (
         <div className={styles.gridWrapper}>
+            <div className={styles.gridOptions}>
+                <div className={`sortText`}>Sort By:&nbsp;</div>
+                <form>
+                    <select className={`sortBox`}>
+                        <option name={`latest`} value={`latest`}>Latest Products</option>
+                        <option name={`priceLow`} value={`lowest`}>Lowest Price</option>
+                        <option name={`priceHigh`} value={`highest`}>Highest Price</option>
+                    </select>
+                </form>
+            </div>
             <div className={styles.productGrid}>
                 {products.map((product) => (
                     <ProductCard
@@ -35,10 +45,10 @@ const ProductGrid = ({children, currentPage, numPages, collectionHandle}) => {
                 ))}
             </div>
             {showPagination &&
-                <div className={`styles.productNavigation`}>
+                <div className={styles.productNavigation}>
                     {!isFirst && (
                         <Link to={prevPage} rel="prev">
-                            &lt;&lt;
+                            &laquo;
                         </Link>
                     )}
                     {Array.from({length: numPages}, (_, i) => (
@@ -49,7 +59,7 @@ const ProductGrid = ({children, currentPage, numPages, collectionHandle}) => {
                     ))}
                     {!isLast && (
                         <Link to={nextPage} rel="next">
-                            &gt;&gt;
+                            &raquo;
                         </Link>
                     )}
                 </div>
