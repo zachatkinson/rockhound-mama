@@ -29,6 +29,7 @@ const ProductGrid = ({children, currentPage, numPages, collectionHandle}) => {
                         <option name={`latest`} value={`latest`}>Latest Products</option>
                         <option name={`priceLow`} value={`lowest`}>Lowest Price</option>
                         <option name={`priceHigh`} value={`highest`}>Highest Price</option>
+                        <option name={`alphabetic`} value={`alphabetic`}>Alphabetic</option>
                     </select>
                 </form>
             </div>
