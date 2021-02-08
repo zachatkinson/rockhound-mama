@@ -3,6 +3,8 @@ import {Link} from "gatsby"
 
 import styles from "./shopify-collection-card.module.scss"
 
+
+
 import BackgroundImage from 'gatsby-background-image'
 
 const CollectionCard = (props) => {
