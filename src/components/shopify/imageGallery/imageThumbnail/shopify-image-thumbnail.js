@@ -12,6 +12,9 @@ return (
     <div
         className={[styles.thumbWrap]}
         onClick={handleClick}
+        onKeyDown={handleClick}
+        role={`button`}
+        tabIndex={`0`}
     >
 
         <Img fluid={image.localFile.childImageSharp.fluid} />

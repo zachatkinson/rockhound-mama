@@ -4,10 +4,14 @@ import Img from "gatsby-image"
 
 import ImageThumbnail from "./imageThumbnail/shopify-image-thumbnail"
 
-const ImageGallery = ({images}) => {
+const ImageGallery = ({selectedVariantImageId, images}) => {
     const[activeImageThumbnail, setActiveImageThumbnail] = React.useState(
-        images[0]
+        images.find(({id}) => id === selectedVariantImageId) || images[0]
     )
+
+    React.useEffect(() => {
+        setActiveImageThumbnail(images.find(({id}) => id === selectedVariantImageId) || images[0])
+    }, [selectedVariantImageId, setActiveImageThumbnail, images])
     const handleClick = (image) => {
         setActiveImageThumbnail(image)
     }

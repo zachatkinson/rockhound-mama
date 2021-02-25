@@ -1,66 +1,87 @@
+/* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import {useAddItemToCart} from 'gatsby-theme-shopify-manager';
-
+import {navigate, useLocation} from "@reach/router";
+import queryString from "query-string"
 
 import SEO from '../../../seo'
-
 import Layout from '../../../layout'
 
 import styles from './productSingle.module.scss'
 
-import getPrice from "../../utils/getPrice"
-
 import tagHandle from "../../utils/tagHandle"
 
 import ImageGallery from "../../imageGallery/shopify-image-gallery";
+import CartContext from "../../context/CartContext";
 
 
 
 
 const ProductPage = ({ data }) => {
-    const product = data.shopifyProduct
-    const showOptions =  product.variants[0].selectedOptions[0].value  === "Default Title" ? false : true
-    const addItemToCart = useAddItemToCart();
+    const staticProduct = data.shopifyProduct
 
-        async function addToCart() {
-            const variantId = 'some_variant_id';
-            const quantity = 1;
+    const { getProductById } = React.useContext(CartContext)
+    const [product, setProduct] = React.useState(null)
+    const [selectedVariant, setSelectedVariant] = React.useState(null)
+    const {search, origin, pathname} = useLocation()
 
-            try {
-                await addItemToCart(variantId, quantity);
-                alert('Successfully added that item to your cart!');
-            } catch {
-                alert('There was a problem adding that item to your cart.');
+    const variantId = queryString.parse(search).variant
+
+    const handleVariantChange = (e) => {
+        const newVariant = product?.variants.find(variant => variant.id === e.target.value)
+        setSelectedVariant(newVariant)
+        navigate(`${origin}${pathname}?variant=${encodeURIComponent(newVariant.id)}`, {
+            replace: true,
             }
-        }
+        )
+    }
+
+
+
+    React.useEffect(() => {
+        getProductById(data.shopifyProduct.shopifyId).then(result => {
+            setProduct(result)
+            setSelectedVariant(
+                result.variants.find(({id}) => id === variantId )|| result.variants[0]
+            )
+
+        })
+    }, [getProductById, data.shopifyProduct.shopifyId, setProduct, variantId])
+
+
     return (
         <>
             <Layout>
-                <SEO title={product.title} description={product.description} />
+                <SEO title={staticProduct.title} description={staticProduct.description} />
                 <div className={styles.productWrapper}>
-                    <ImageGallery images={product.images} />
+                    <ImageGallery
+                        selectedVariantImageId={selectedVariant?.image.id}
+                        images={staticProduct.images} />
                     <div className={styles.productInfo}>
-                        <h1>{product.title}</h1>
-                        <p><strong>${getPrice(product.priceRange.minVariantPrice.amount)}</strong></p>
+                        <h1>{staticProduct.title}</h1>
+                        {!!selectedVariant &&
+                        <p><strong>${selectedVariant?.price}</strong></p>
+                        }
+                        {product?.availableForSale && !!selectedVariant && product?.variants.length > 1 && (
                         <form>
-                            {showOptions &&
-                                <div className={styles.variantWrapper}>
-                                    <label htmlFor={`variants`}>{product.variants[0].selectedOptions[0].name}</label><br />
-                                    <select name={`variants`}>
-                                    {product.variants.map(variant => (
-                                        variant.availableForSale && (
-                                            <option key={variant.shopifyId} value={variant.title}>{variant.title}</option>
-                                        )
-                                ))}
-                                    </select>
-                                </div>
-                            }
-                            <button onClick={addToCart} className={``} href={`#`}>Add to Cart</button>
-                        </form>
+                            <div className={styles.variantWrapper}>
+                                <label htmlFor={`variants`}>Variants</label><br />
 
-                            <div className={styles.description} dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}></div>
-                        {product.tags.map(tag => (
+                                <select name={`variants`} onChange={handleVariantChange} value={selectedVariant.id}>
+
+                                    {product.variants.map(variant => (
+
+                                        <option key={variant.id} value={variant.id}>{variant.title}</option>
+
+                                    ))}
+                                </select>
+                            </div>
+
+                        </form>)
+                        }
+                        <button className={``} href={`#`}>Add to Cart</button>
+                        <div className={styles.description} dangerouslySetInnerHTML={{ __html: staticProduct.descriptionHtml }}></div>
+                        {staticProduct.tags.map(tag => (
                             <Link to={`/tag/${tagHandle(tag)}/`} className={styles.tagButton} key={tag}>{tag}</Link>
                         ))}
                     </div>

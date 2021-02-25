@@ -1,7 +1,17 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from 'react';
+import { ProductContextProvider } from './src/components/shopify/context/ProductContext';
+import { CartContextProvider } from './src/components/shopify/context/CartContext';
 
-// You can delete this file if you're not using it
+
+export const wrapRootElement = ({ element }) => (
+    <ProductContextProvider>
+        <CartContextProvider>{element}</CartContextProvider>
+    </ProductContextProvider>
+);
+
+export const wrapPageElement = ({ element }) => (
+    <>
+
+        {element}
+    </>
+);

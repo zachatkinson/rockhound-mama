@@ -37,13 +37,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-theme-shopify-manager`,
+      resolve: `gatsby-source-shopify`,
       options: {
         shopName: process.env.SHOP_NAME,
         // The storefront access token
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        shouldConfigureSourcePlugin: true,
-        shouldWrapRootElementWithProvider: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
