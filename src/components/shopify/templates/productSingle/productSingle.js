@@ -62,9 +62,10 @@ const ProductPage = ({ data }) => {
                         {!!selectedVariant &&
                         <p><strong>${selectedVariant?.price}</strong></p>
                         }
-                        {product?.availableForSale && !!selectedVariant && product?.variants.length > 1 && (
+                        {product?.availableForSale && !!selectedVariant && (
                         <form>
                             <div className={styles.variantWrapper}>
+                                product?.variants.length > 1 && (
                                 <label htmlFor={`variants`}>Variants</label><br />
 
                                 <select name={`variants`} onChange={handleVariantChange} value={selectedVariant.id}>
@@ -75,6 +76,7 @@ const ProductPage = ({ data }) => {
 
                                     ))}
                                 </select>
+                                )
                             </div>
 
                         </form>)
