@@ -59,24 +59,24 @@ const ProductPage = ({ data }) => {
                         images={staticProduct.images} />
                     <div className={styles.productInfo}>
                         <h1>{staticProduct.title}</h1>
-                        {!!selectedVariant &&
-                        <p><strong>${selectedVariant?.price}</strong></p>
-                        }
                         {product?.availableForSale && !!selectedVariant && (
                         <form>
+                            <p><strong>${selectedVariant?.price}</strong></p>
                             <div className={styles.variantWrapper}>
-                                product?.variants.length > 1 && (
-                                <label htmlFor={`variants`}>Variants</label><br />
+                                {product?.variants.length > 1 && (
+                                    <div className={`select-wrap`}>
+                                    <label htmlFor={`variants`}>Variants</label><br />
 
-                                <select name={`variants`} onChange={handleVariantChange} value={selectedVariant.id}>
+                                    <select name={`variants`} onChange={handleVariantChange} value={selectedVariant.id}>
+                                        {product.variants.map(variant => (
 
-                                    {product.variants.map(variant => (
+                                            <option key={variant.id} value={variant.id}>{variant.title}</option>
 
-                                        <option key={variant.id} value={variant.id}>{variant.title}</option>
+                                        ))}
+                                    </select>
+                                    </div>
+                                )}
 
-                                    ))}
-                                </select>
-                                )
                             </div>
 
                         </form>)
