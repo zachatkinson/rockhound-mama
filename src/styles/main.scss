@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "Rich Ganbatte";
-  src: url('../fonts/rich-ganbatte.woff');
-}
+
 @font-face{
   font-family: "Bellagio";
   src: url("../fonts/bellagio-webfont.woff2")
@@ -29,10 +26,7 @@ h5{
 h6{
   font-size: 1.1rem;
 }
-.rich-ganbatte{
-  font-family: "Rich Ganbatte", serif;
-  font-weight: 400;
-}
+
 .uppercase{
   text-transform: uppercase;
 }
