@@ -6,11 +6,11 @@ import styles from "./cart.module.scss"
 const Cart = () => {
     const {checkout} = React.useContext(CartContext)
     let totalQuantity = 0
-    if({checkout}){
-        checkout.lineItems.forEach(lineItem => {
-            totalQuantity = totalQuantity + lineItem.quantity
-        })
-    }
+    // if({checkout}){
+    //     checkout.lineItems.forEach(lineItem => {
+    //         totalQuantity += lineItem.quantity
+    //     })
+    // }
     return(
         <div className={styles.cartWrap}>
             <FaShoppingCart size ={`1.5rem`} />
