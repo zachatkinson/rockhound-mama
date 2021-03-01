@@ -1,0 +1,36 @@
+.quantityInput{
+  max-width: 3rem;
+  border-radius: 0;
+  border-left: 2px solid #000;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-right: none;
+  height: 2.5rem;
+  box-sizing: border-box;
+  min-width: 0;
+
+}
+.quantityButton{
+  height: 2.5rem;
+  outline: none;
+  padding: 0 10px;
+  line-height: 2.5rem;
+  font-size: 16px;
+  box-shadow: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #000;
+  background: #fff;
+  border: 2px solid #000;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  &:focus:not(:disabled), &:hover:not(:disabled){
+    background: black;
+    color: white;
+  }
+  &:disabled{
+    border-color: #999;
+    cursor: not-allowed;
+    color: #999;
+  }
+
+}

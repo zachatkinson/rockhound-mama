@@ -2,9 +2,7 @@ import React from "react"
 import {graphql, Link, useStaticQuery} from "gatsby"
 
 import BackgroundImage from 'gatsby-background-image'
-
-import Logo from "../logo"
-
+import SVGLogo from "../../svg/rhm-logo-tagline_thin.svg"
 
 import styles from "./homeHeader.module.scss"
 
@@ -29,10 +27,10 @@ const HomeHeader = () => {
             >
                 <div className={styles.homeHeaderContent}>
                     <div className={styles.logoImg}>
-                        <Logo fullLogo />
+                        <SVGLogo />
                     </div>
-                    <h1 className={`rich-ganbatte`}>Holiday Packages</h1>
-                    <h3 className={`uppercase`}>Calm Your Soul with our New Years Bundles</h3>
+                    <h1 className={`bellagio`}>Holiday Packages</h1>
+                    <h3 className={`bellagio`}>Calm Your Soul with our New Years Bundles</h3>
                     <Link to={`#`} className={styles.viewButton}>
                         View Bundles
                     </Link>

@@ -10,9 +10,9 @@ const ProductCard = (props) => {
         <div className={styles.productCard}>
             <BackgroundImage fluid={props.image}>
                 <div className={styles.productCardContent}>
-            <h5 className={styles.productCardTitle}>
+            <h6 className={styles.productCardTitle}>
                 {props.title}
-            </h5>
+            </h6>
                     <p><i>${props.price}</i></p>
                     <Link to={`/product/${props.handle}`} className={styles.productCardViewButton}>
                     View

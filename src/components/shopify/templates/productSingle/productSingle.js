@@ -11,6 +11,8 @@ import styles from './productSingle.module.scss'
 
 import tagHandle from "../../utils/tagHandle"
 
+import ProductQuantityAdder from "../../productQuantityAdder/shopify-product-quantity-adder";
+
 import ImageGallery from "../../imageGallery/shopify-image-gallery";
 import CartContext from "../../context/CartContext";
 
@@ -60,8 +62,8 @@ const ProductPage = ({ data }) => {
                     <div className={styles.productInfo}>
                         <h1>{staticProduct.title}</h1>
                         {product?.availableForSale && !!selectedVariant && (
-                        <form>
-                            <p><strong>${selectedVariant?.price}</strong></p>
+                        <div>
+
                             <div className={styles.variantWrapper}>
                                 {product?.variants.length > 1 && (
                                     <div className={`select-wrap`}>
@@ -76,12 +78,13 @@ const ProductPage = ({ data }) => {
                                     </select>
                                     </div>
                                 )}
+                                <p><strong>${selectedVariant?.price}</strong></p>
+                                <ProductQuantityAdder variantId={selectedVariant.id} available={selectedVariant.available} />
 
                             </div>
 
-                        </form>)
+                        </div>)
                         }
-                        <button className={``} href={`#`}>Add to Cart</button>
                         <div className={styles.description} dangerouslySetInnerHTML={{ __html: staticProduct.descriptionHtml }}></div>
                         {staticProduct.tags.map(tag => (
                             <Link to={`/tag/${tagHandle(tag)}/`} className={styles.tagButton} key={tag}>{tag}</Link>

@@ -17,9 +17,9 @@ const Logo = ({fullLogo}) => {
 
     const data = useStaticQuery(graphql`
         query {
-            initials: file(relativePath: { eq: "logo-initials.png" }) {
+            initials: file(relativePath: { eq: "rhm-logomark.png" }) {
                 childImageSharp {
-                    fluid(maxWidth: 75) {
+                    fluid(maxWidth: 114) {
                         ...GatsbyImageSharpFluid
                     }
                 }
@@ -41,7 +41,7 @@ const Logo = ({fullLogo}) => {
         return <div>Picture not found</div>
     }
 
-    return <Img fluid={output} />
+    return <Img fluid={output}  />
 }
 
 export default Logo

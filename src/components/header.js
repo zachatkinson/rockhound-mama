@@ -1,22 +1,23 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Cart from "./shopify/cart/cart"
+import SVGLogo from "../svg/rhm-logomark_thin.svg"
 
-
-
-import Logo from "./logo"
+import {GiHamburgerMenu} from "react-icons/all";
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `#001C14`,
-      marginBottom: `0`,
+        background: `#ffffff`,
+        marginBottom: `0`,
+        padding: `1rem`,
     }}
     className={`store-header`}
   >
 
             <div className={`menu-button`}>
-                Menu Button
+                <GiHamburgerMenu size={`1.5rem`} />
             </div>
             <div className={`header-logo`}>
                 <Link
@@ -26,12 +27,10 @@ const Header = ({ siteTitle }) => (
                         textDecoration: `none`,
                     }}
                 >
-                <Logo logoType={`initials`} />
+                <SVGLogo />
                 </Link>
             </div>
-            <div className={`cart-button`}>
-                Cart Button
-            </div>
+            <Cart />
   </header>
 
 )
