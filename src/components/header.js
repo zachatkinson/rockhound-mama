@@ -30,7 +30,11 @@ const Header = ({ siteTitle }) => (
                 <SVGLogo />
                 </Link>
             </div>
+            <Link to={"/cart"}
+                className={`cartLink`}
+            >
             <Cart />
+            </Link>
   </header>
 
 )

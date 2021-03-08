@@ -2,5 +2,17 @@
   display: flex;
   .cartCounts{
     padding-left: 1rem;
+    text-decoration: underline;
   }
+}
+.quantityIcon{
+  border-radius: 50%;
+  background: red;
+  color: white;
+  padding-top: 0.7rem;
+  padding-left: 0.25rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.6rem;
+  margin-left: -0.3rem;
 }
