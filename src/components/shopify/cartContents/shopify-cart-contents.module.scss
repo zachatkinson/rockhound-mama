@@ -1,0 +1,10 @@
+.cartItem{
+  border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  .titleWrap{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
