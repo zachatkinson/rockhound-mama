@@ -30,7 +30,7 @@ const Treeline = () => {
         return <div>Picture not found</div>
     }
 
-    return <Img className={`tree-line`} fluid={data.placeholderImage.childImageSharp.fluid} backgroundColor={`#020202`} />
+    return <Img className={`tree-line`} fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default Treeline

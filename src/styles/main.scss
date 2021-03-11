@@ -61,8 +61,8 @@ body {
 
 
 .main-footer {
-  background-color: #AB8D3F;
-  color: #F7CB5C;
+  background-color: #000;
+  color: #333;
   padding: 1rem;
 
   a {
@@ -71,19 +71,25 @@ body {
 }
 
 .tree-line {
-  background-color: #020202;
-  border: 0;
-  padding: 0;
+  border: none;
   margin: 0;
 }
 
+.footer-top{
+  background: transparent;
+  padding-top: 2rem;
+}
 
 //ONE TREE PLANTED CALLOUT
-.tree-callout {
+.tree-callout{
+  background: url("../images/milky-way.jpg");
+  background-size: cover;
+}
+.inner-tree-callout {
   display: flex;
   padding: 1rem;
-  background: #020202;
-  color: #fcfcfc;
+  color: #242424;
+
   flex-direction: column;
   @media (min-width: 768px) {
     flex-direction: row;
@@ -101,6 +107,7 @@ body {
 
   .tree-content {
     padding: 0;
+    color: #fcfcfc;
     h2 {
       text-align: center;
     }

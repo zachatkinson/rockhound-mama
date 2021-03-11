@@ -13,8 +13,10 @@ const Cart = () => {
     }
     return(
         <div className={styles.cartWrap}>
+            <div className={styles.cartIcon}>
             <FaShoppingCart size ={`1.5rem`} /><sub className={styles.quantityIcon}>{totalQuantity}</sub>
-            <span className={styles.cartCounts}> ${checkout?.totalPrice || `0.00`}</span>
+            </div>
+            <div className={styles.cartCounts}> ${checkout?.totalPrice || `0.00`}</div>
         </div>
     )
 }

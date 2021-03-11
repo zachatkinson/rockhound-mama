@@ -1,28 +1,30 @@
 import React from "react"
-import Img from "gatsby-image"
 
-import styles from "./shoify-cart-item.module.scss"
+import styles from "./shopify-cart-item.module.scss"
 
 const CartItem = ({item}) => {
-    return(
+    return (
         <div className={styles.cartItem}>
-            <div className={`itemPic`}>
-            <img src={item.variant.image.src} width={`150`} height={`150`} />
+            <div className={styles.itemProductInfo}>
+                <div className={styles.itemPic}>
+                    <img src={item.variant.image.src} width={`60`} height={`60`} alt={item.title}/>
+                </div>
+                <div className={styles.itemDetails}>
+                    <div className={styles.itemTitle}>
+                        <h6>{item.title}</h6>
+                        {(item.variant.title !== "Default Title") &&
+                        <p className={styles.styleType}>Style: {item.variant.title}</p>
+                        }
+                        <p>Remove</p>
+                    </div>
+                </div>
             </div>
-            <div className={`itemDetails`}>
-                <div className={styles.itemTitle}>
-                    <h4>{item.title}</h4>
-                    {(item.variant.title != "Default Title") &&
-                    <p>Style: {item.variant.title}</p>
-                    }
-                </div>
-                <div className={`itemPrices`}>
-                    <p>${item.variant.price}</p>
-                    {item.quantity}
-                    ${(item.variant.price * item.quantity).toFixed(2)}
-                </div>
+            <div className={styles.itemPrices}>
+                <p>${item.variant.price}<br />
+                Qty: {item.quantity}<br />
+                    Total: ${(item.variant.price * item.quantity).toFixed(2)}</p>
+            </div>
 
-            </div>
         </div>
     )
 }

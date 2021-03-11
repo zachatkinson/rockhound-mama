@@ -12,7 +12,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import "../styles/main.scss"
-import Treeline from "./treeline";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -35,7 +34,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-          <Treeline />
+
         <footer className={`main-footer`}>
           © {new Date().getFullYear()}, Built with
           {` `}
