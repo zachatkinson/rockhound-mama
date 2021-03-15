@@ -1,7 +1,6 @@
 import React from "react"
 import CartContext from "../context/CartContext"
 
-import CartItem from "./cartItem/shopify-cart-item";
 
 import styles from "./shopify-cart-contents.module.scss"
 import {Link} from "gatsby";
@@ -28,7 +27,28 @@ const CartContents = () => {
             {checkout?.lineItems?.map(lineItem => {
                 console.log(lineItem)
                 return (
-                    <CartItem key={lineItem.key} item={lineItem} />
+                    <div className={styles.cartItem} key={lineItem.key}>
+                        <div className={styles.itemProductInfo}>
+                            <div className={styles.itemPic}>
+                                <img src={lineItem.variant.image.src} width={`60`} height={`60`} alt={lineItem.title}/>
+                            </div>
+                            <div className={styles.itemDetails}>
+                                <div className={styles.itemTitle}>
+                                    <h6>{lineItem.title}</h6>
+                                    {(lineItem.variant.title !== "Default Title") &&
+                                    <p className={styles.styleType}>Style: {lineItem.variant.title}</p>
+                                    }
+                                    <p>Remove</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.itemPrices}>
+                            <p>${lineItem.variant.price}<br />
+                                Qty: {lineItem.quantity}<br />
+                                Total: ${(lineItem.variant.price * lineItem.quantity).toFixed(2)}</p>
+                        </div>
+
+                    </div>
                 )
             })}
             </div>
