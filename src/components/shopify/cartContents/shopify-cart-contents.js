@@ -1,13 +1,18 @@
 import React from "react"
 import CartContext from "../context/CartContext"
 
+import CartQuantityAdjuster from "../cartQuantityAdjuster/shopify-cart-quantity-adjuster";
 
 import styles from "./shopify-cart-contents.module.scss"
 import {Link} from "gatsby";
+import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 
 
 const CartContents = () => {
-    const {checkout} = React.useContext(CartContext)
+    const {checkout, updateLineItem} = React.useContext(CartContext)
+    const handleAdjustQuantity = ({quantity, variantId}) => {
+        updateLineItem({quantity, variantId})
+    }
     return (
         <section>
             <div className={styles.cartGreeting}>
@@ -25,9 +30,8 @@ const CartContents = () => {
                 </div>
 
             {checkout?.lineItems?.map(lineItem => {
-                console.log(lineItem)
                 return (
-                    <div className={styles.cartItem} key={lineItem.key}>
+                    <div className={styles.cartItem} key={lineItem.variant.id}>
                         <div className={styles.itemProductInfo}>
                             <div className={styles.itemPic}>
                                 <img src={lineItem.variant.image.src} width={`60`} height={`60`} alt={lineItem.title}/>
@@ -38,14 +42,15 @@ const CartContents = () => {
                                     {(lineItem.variant.title !== "Default Title") &&
                                     <p className={styles.styleType}>Style: {lineItem.variant.title}</p>
                                     }
-                                    <p>Remove</p>
+                                    <RemoveLineItem  lineItemId={lineItem.id} />
                                 </div>
                             </div>
                         </div>
                         <div className={styles.itemPrices}>
-                            <p>${lineItem.variant.price}<br />
-                                Qty: {lineItem.quantity}<br />
-                                Total: ${(lineItem.variant.price * lineItem.quantity).toFixed(2)}</p>
+                            <p>${lineItem.variant.price}</p><br />
+                            Quantity:
+                                <CartQuantityAdjuster item={lineItem} onAdjust={handleAdjustQuantity} />
+                                <p>Total: ${(lineItem.variant.price * lineItem.quantity).toFixed(2)}</p>
                         </div>
 
                     </div>
