@@ -4,17 +4,16 @@ import React from "react";
 import CollectionCard from "../collectionCard/shopify-collection-card";
 import styles from "./shopify-collection-grid.module.scss"
 
-const CollectionGrid = ({children}) => {
-    const collections = {children}
+const CollectionGrid = ({collections}) => {
 
     return (
         <div className={styles.collectionGrid}>
-            {collections.children.edges.map(({node}) => (
+            {collections.map((collection) => (
                 <CollectionCard
-                    title={node.title}
-                    key={node.shopifyId}
-                    image={node.image.localFile.childImageSharp.fluid}
-                    handle={node.handle}
+                    title={collection.title}
+                    key={collection.shopifyId}
+                    image={collection.image.localFile.childImageSharp.fluid}
+                    handle={collection.handle}
                 />
             ))}
         </div>

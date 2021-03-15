@@ -11,9 +11,9 @@ const CartQuantityAdjuster = ({item, onAdjust}) => {
     }
     return(
         <div className={styles.quantityAdjuster}>
-            <div className={styles.decrementQuantity} onClick={handleDecrementQuantity}>-</div>
+            <div className={styles.decrementQuantity} onClick={handleDecrementQuantity} onKeyPress={handleDecrementQuantity} role={`button`} tabIndex={0}>-</div>
             <div className={styles.currentQuantity}>{quantity}</div>
-            <div className={styles.incrementQuantity} onClick={handleIncrementQuantity}>+</div>
+            <div className={styles.incrementQuantity} onClick={handleIncrementQuantity} onKeyPress={handleIncrementQuantity} role={`button`} tabIndex={0}>+</div>
         </div>
     )
 }

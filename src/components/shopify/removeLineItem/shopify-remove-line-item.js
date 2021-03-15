@@ -9,7 +9,7 @@ const RemoveLineItem = ({lineItemId}) => {
         removeLineItem(lineItemId)
     }
     return(
-        <div className={styles.removeButton} onClick = {handleClick}>
+        <div className={styles.removeButton} onClick = {handleClick} onKeyPress={handleClick} role={`button`} tabIndex={0}>
             Remove
         </div>
     )

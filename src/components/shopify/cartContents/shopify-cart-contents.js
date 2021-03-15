@@ -4,7 +4,8 @@ import CartContext from "../context/CartContext"
 import CartQuantityAdjuster from "../cartQuantityAdjuster/shopify-cart-quantity-adjuster";
 
 import styles from "./shopify-cart-contents.module.scss"
-import {Link} from "gatsby";
+import {Link} from "gatsby"
+import "gatsby-image"
 import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 
 

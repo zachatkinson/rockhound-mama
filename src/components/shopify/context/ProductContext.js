@@ -3,15 +3,32 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const query = graphql`
     fragment ShopifyProductFields on ShopifyProduct {
-        shopifyId
+        id
         title
+        productType
         description
+        descriptionHtml
+        shopifyId
+        tags
+        variants {
+            id
+            title
+            price
+            availableForSale
+            shopifyId
+            selectedOptions {
+                name
+                value
+            }
+        }
+        
         images {
+            originalSrc
             id
             localFile {
                 childImageSharp {
-                    fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid_withWebp
+                    fluid(maxWidth: 1200) {
+                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                 }
             }
