@@ -12,7 +12,7 @@ const HomeHeader = () => {
         query {
             placeholderImage: file(relativePath: { eq: "winter-deals.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1440) {
+                    fluid(maxWidth: 600) {
                         ...GatsbyImageSharpFluid
                     }
                 }
