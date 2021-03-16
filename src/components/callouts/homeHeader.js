@@ -30,7 +30,7 @@ const HomeHeader = () => {
                         <SVGLogo />
                     </div>
                     <h1 className={`bellagio`}>Holiday Packages</h1>
-                    <h3 className={`bellagio`}>Calm Your Soul with our New Years Bundles</h3>
+                    <h2 className={`bellagio`}>Calm Your Soul with our New Years Bundles</h2>
                     <Link to={`#`} className={styles.viewButton}>
                         View Bundles
                     </Link>
