@@ -5,15 +5,13 @@ import CollectionCard from "../collectionCard/shopify-collection-card";
 import styles from "./shopify-collection-grid.module.scss"
 
 const CollectionGrid = ({collections}) => {
-
+    console.log(collections)
     return (
         <div className={styles.collectionGrid}>
-            {collections.map((collection) => (
+            {collections?.map(collection => (
                 <CollectionCard
-                    title={collection.title}
+                    collection={collection}
                     key={collection.shopifyId}
-                    image={collection.image.localFile.childImageSharp.fluid}
-                    handle={collection.handle}
                 />
             ))}
         </div>

@@ -1,11 +1,19 @@
 .collectionCard {
   flex-grow: 1;
-  flex-basis: 50%;
-
+  flex-basis: 100%;
+  @media (min-width: 576px) {
+    flex-basis: 50%;
+  }
+  @media (min-width: 1200px) {
+    flex-basis: 25%;
+  }
   .collectionCardContent {
     width: 100%;
     color: #fff;
-    min-height: 50vw;
+    min-height: 33vw;
+    @media (min-width: 1200px) {
+    min-height: 25vw;
+  }
     display: flex;
     justify-content: center;
     align-items: center;

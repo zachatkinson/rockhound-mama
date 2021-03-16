@@ -15,7 +15,6 @@ import ProductContext from "../components/shopify/context/ProductContext";
 
 const IndexPage = ({data}) => {
     const {collections} = React.useContext(ProductContext)
-    console.log(collections)
     return (
 
         <Layout>
@@ -25,7 +24,7 @@ const IndexPage = ({data}) => {
                 {data.products.edges}
             </ProductGrid>
             <h2>Collections</h2>
-            <CollectionGrid collections={collections} />
+            <CollectionGrid collections={collections?.filter(collection => collection.title !== `Bundles`)} />
             <div className={`tree-callout`}>
                 <div className={`inner-tree-callout`}>
                     <div className={`tree-img`}><Image /></div>
