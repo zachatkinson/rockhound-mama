@@ -18,7 +18,7 @@ const Treeline = () => {
         query {
             placeholderImage: file(relativePath: { eq: "treeline.png" }) {
                 childImageSharp {
-                    fluid(maxWidth: 1200) {
+                    fluid(maxWidth: 600) {
                         ...GatsbyImageSharpFluid
                     }
                 }
