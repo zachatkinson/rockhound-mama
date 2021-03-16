@@ -21,6 +21,7 @@ const Header = ({ siteTitle }) => (
             </div>
             <div className={`header-logo`}>
                 <Link
+                    aria-label={`Home Link`}
                     to="/"
                     style={{
                         color: `white`,
