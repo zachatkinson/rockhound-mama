@@ -4,8 +4,6 @@ import Image from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import HomeHeader from "../components/callouts/homeHeader";
-
 import CollectionGrid from "../components/shopify/collectionGrid/shopify-collection-grid";
 import ProductGrid from "../components/shopify/productGrid/shopify-product-grid";
 import {graphql} from "gatsby";
@@ -19,12 +17,10 @@ const IndexPage = ({data}) => {
 
         <Layout>
             <SEO title="Home"/>
-            <HomeHeader />
+            <CollectionGrid collections={collections} />
             <ProductGrid>
                 {data.products.edges}
             </ProductGrid>
-            <h2>Collections</h2>
-            <CollectionGrid collections={collections?.filter(collection => collection.title !== `Bundles`)} />
             <div className={`tree-callout`}>
                 <div className={`inner-tree-callout`}>
                     <div className={`tree-img`}><Image /></div>

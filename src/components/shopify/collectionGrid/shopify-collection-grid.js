@@ -5,15 +5,26 @@ import CollectionCard from "../collectionCard/shopify-collection-card";
 import styles from "./shopify-collection-grid.module.scss"
 
 const CollectionGrid = ({collections}) => {
-    console.log(collections)
+    const bundleCollection = collections?.find(collection => collection.title === "Bundles")
+    const remainingCollections= collections?.filter(collection => collection.title !== `Bundles`)
+    console.log(remainingCollections)
     return (
+        <div className={styles.allCollections}>
+            {!!bundleCollection &&
+            <CollectionCard
+                collection={bundleCollection}
+                key={bundleCollection.shopifyId}
+            />
+            }
         <div className={styles.collectionGrid}>
-            {collections?.map(collection => (
+
+            {remainingCollections?.map(collection => (
                 <CollectionCard
                     collection={collection}
                     key={collection.shopifyId}
                 />
             ))}
+        </div>
         </div>
     )
 }

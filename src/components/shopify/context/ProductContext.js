@@ -27,7 +27,7 @@ const query = graphql`
             id
             localFile {
                 childImageSharp {
-                    fluid(maxWidth: 720) {
+                    fluid(maxWidth: 300) {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                 }

@@ -3,8 +3,6 @@ import {Link} from "gatsby"
 
 import styles from "./shopify-collection-card.module.scss"
 
-
-
 import BackgroundImage from 'gatsby-background-image'
 
 const CollectionCard = ({collection}) => {
@@ -17,10 +15,11 @@ const CollectionCard = ({collection}) => {
                         {collection.title}
                     </h2>
                     <Link to={`/collection/${collection.handle}`} className={styles.collectionCardViewButton}>
-                        View
+                        Shop Now
                     </Link>
                 </div>
             </BackgroundImage>
+
         </div>
     )
 
