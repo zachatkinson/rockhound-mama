@@ -19,7 +19,6 @@ const IndexPage = ({data}) => {
 
         <Layout>
             <SEO title="Home"/>
-            <HomeHeader />
             <ProductGrid>
                 {data.products.edges}
             </ProductGrid>
