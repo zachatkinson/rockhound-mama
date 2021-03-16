@@ -27,6 +27,10 @@
     background: black;
     color: white;
   }
+  &:active:not(:disabled){
+    background: #bbee89;
+    transition: none;
+  }
   &:disabled{
     border-color: #999;
     cursor: not-allowed;

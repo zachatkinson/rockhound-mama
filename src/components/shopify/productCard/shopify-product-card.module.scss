@@ -6,6 +6,9 @@
     width: 100%;
     color: #fff;
     min-height: 50vw;
+    h2{
+      font-size: 1.1rem;
+    }
     @media (min-width: 768px) {
       min-height: 33vw;
     }
@@ -14,7 +17,7 @@
     }
     @media (min-width: 1200px) {
       min-height: 16.6vw;
-      h6{
+      h2{
         font-size: 0.9rem;
       }
     }

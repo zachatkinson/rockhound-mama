@@ -13,9 +13,9 @@ const CollectionCard = ({collection}) => {
         <div className={styles.collectionCard}>
             <BackgroundImage fluid={collection.image.localFile.childImageSharp.fluid}>
                 <div className={styles.collectionCardContent}>
-                    <h5 className={styles.collectionCardTitle}>
+                    <h2 className={styles.collectionCardTitle}>
                         {collection.title}
-                    </h5>
+                    </h2>
                     <Link to={`/collection/${collection.handle}`} className={styles.collectionCardViewButton}>
                         View
                     </Link>
