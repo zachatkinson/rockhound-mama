@@ -15,7 +15,6 @@ import ProductGrid from "../components/shopify/productGrid/shopify-product-grid"
 
 const IndexPage = ({data}) => {
     const {collections} = React.useContext(ProductContext)
-    console.log(data.products.edges)
     let products = []
     let i = 0
     data.products.edges.map(({node}) => (
