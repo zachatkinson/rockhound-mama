@@ -17,7 +17,7 @@ const ProductGrid = ({products, currentPage, numPages, collectionHandle}) => {
         <div className={styles.gridWrapper}>
 
             <div className={styles.productGrid}>
-                {products.map((product) => (
+                {products?.map((product) => (
                     <ProductCard
                         title={product.title}
                         key={product.shopifyId}
