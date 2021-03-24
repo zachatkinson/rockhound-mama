@@ -1,4 +1,10 @@
-.collectionGrid {
+.allCollections{
+  background: pink;
+  display: flex;
+  flex-direction: column;
+  
+}
+.remainingCollections {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -8,5 +14,6 @@
     overflow: hidden;
 
   }
+
 
 }

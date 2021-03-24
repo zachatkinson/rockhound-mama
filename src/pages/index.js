@@ -5,22 +5,30 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import CollectionGrid from "../components/shopify/collectionGrid/shopify-collection-grid";
-import ProductGrid from "../components/shopify/productGrid/shopify-product-grid";
+
 import {graphql} from "gatsby";
 import Treeline from "../components/treeline";
 
 import ProductContext from "../components/shopify/context/ProductContext";
 
+import ProductGrid from "../components/shopify/productGrid/shopify-product-grid";
+
 const IndexPage = ({data}) => {
     const {collections} = React.useContext(ProductContext)
+    console.log(data.products.edges)
+    let products = []
+    let i = 0
+    data.products.edges.map(({node}) => (
+        products[i++] = node
+    ))
     return (
 
         <Layout>
             <SEO title="Home"/>
             <CollectionGrid collections={collections} />
-            <ProductGrid>
-                {data.products.edges}
-            </ProductGrid>
+            <h2>Latest Products</h2>
+            <ProductGrid products={products} />
+
             <div className={`tree-callout`}>
                 <div className={`inner-tree-callout`}>
                     <div className={`tree-img`}><Image /></div>

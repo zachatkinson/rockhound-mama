@@ -59,6 +59,7 @@ const query = graphql`
                         ...ProductTileFields
                     }
                     title
+                    handle
                     description
                     shopifyId
                     image {

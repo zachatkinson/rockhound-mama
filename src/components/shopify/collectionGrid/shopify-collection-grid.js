@@ -7,7 +7,6 @@ import styles from "./shopify-collection-grid.module.scss"
 const CollectionGrid = ({collections}) => {
     const bundleCollection = collections?.find(collection => collection.title === "Bundles")
     const remainingCollections= collections?.filter(collection => collection.title !== `Bundles`)
-    console.log(remainingCollections)
     return (
         <div className={styles.allCollections}>
             {!!bundleCollection &&
@@ -16,7 +15,7 @@ const CollectionGrid = ({collections}) => {
                 key={bundleCollection.shopifyId}
             />
             }
-        <div className={styles.collectionGrid}>
+        <div className={styles.remainingCollections}>
 
             {remainingCollections?.map(collection => (
                 <CollectionCard
