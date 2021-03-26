@@ -8,7 +8,7 @@ const Filters = () => {
     return (
         <div className={styles.filterBox}>
             <strong>Categories</strong>
-        {collections.map(collection => (
+        {collections?.map(collection => (
                     <CategoryFilterItem title={collection.title} id={collection.shopifyId} />
                 )
             )}
