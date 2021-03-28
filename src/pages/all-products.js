@@ -13,6 +13,7 @@ const AllProducts = () => {
     const {search} = useLocation()
     const qs = queryString.parse(search)
 
+
     const selectedCollectionIds = qs.c?.split(',').filter(c => !!c) || []
     const selectedCollectionIdsMap = {}
 
@@ -22,9 +23,9 @@ const AllProducts = () => {
 
     if(collections){
         collections.forEach(collection =>{
-            collectionProductMap[collection.shopifyId]= {}
+            collectionProductMap[collection.handle]= {}
             collection.products.forEach(product => {
-                collectionProductMap[collection.shopifyId][product.shopifyId] = true
+                collectionProductMap[collection.handle][product.shopifyId] = true
             })
         })
     }
@@ -46,9 +47,16 @@ const AllProducts = () => {
     return(
         <Layout>
             <div className={`productsContent`}>
+                <div className={`productsHeader`}>
+                    <div>
+                        <h3>{filteredProducts.length} products</h3>
+                    </div>
+                </div>
+                <div className={`testingFlex`}>
                 <Filters  />
+                </div>
                 <div>
-            <h4>{filteredProducts.length} products</h4>
+
                     <ProductGrid products={filteredProducts} productsPerPage={"50"} />
                 </div>
             </div>
