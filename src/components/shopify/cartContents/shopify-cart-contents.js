@@ -63,9 +63,6 @@ const CartContents = () => {
             <div className={styles.cartGreeting}>
                 <h5><strong>Subtotal: </strong>${checkout?.totalPrice}</h5>
                 <p>Taxes and shipping calculated at checkout</p>
-                <Link to={`/`}><p>Check Out</p></Link>
-            </div>
-            <div className={styles.cartFooter}>
                 <div>
                     <button onClick={() => navigate(-1)}>
                         Continue Shopping
@@ -79,6 +76,9 @@ const CartContents = () => {
                     }
 
                 </div>
+            </div>
+            <div className={styles.cartFooter}>
+
 
             </div>
         </section>
