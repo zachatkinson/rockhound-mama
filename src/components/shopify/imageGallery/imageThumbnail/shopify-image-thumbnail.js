@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import styles from "./shopify-image-thumbnail.module.css"
+import {thumbWrap} from "./shopify-image-thumbnail.module.css"
 
 const ImageThumbnail = ({isActive, onClick, image}) => {
 
@@ -10,7 +10,7 @@ const ImageThumbnail = ({isActive, onClick, image}) => {
     }
 return (
     <div
-        className={[styles.thumbWrap]}
+        className={thumbWrap}
         onClick={handleClick}
         onKeyDown={handleClick}
         role={`button`}
