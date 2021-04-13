@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import Cart from "./shopify/cart/cart"
 import SVGLogo from "../svg/rhm-logomark_thin.svg"
+import Search from "./search/search";
 
 import {GiHamburgerMenu} from "react-icons/all";
 
@@ -16,9 +17,7 @@ const Header = ({ siteTitle }) => (
     className={`store-header`}
   >
 
-            <div className={`menu-button`}>
-                <GiHamburgerMenu size={`1.5rem`} />
-            </div>
+
             <div className={`header-logo`}>
                 <Link
                     aria-label={`Home Link`}
@@ -31,6 +30,7 @@ const Header = ({ siteTitle }) => (
                 <SVGLogo />
                 </Link>
             </div>
+            <Search />
             <Link to={"/cart"}
                 className={`cartLink`}
             >

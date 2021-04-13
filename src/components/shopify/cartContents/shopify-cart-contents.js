@@ -8,6 +8,8 @@ import {Link} from "gatsby"
 import "gatsby-image"
 import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 
+import {navigate} from "@reach/router";
+
 
 const CartContents = () => {
     const {checkout, updateLineItem} = React.useContext(CartContext)
@@ -62,6 +64,22 @@ const CartContents = () => {
                 <h5><strong>Subtotal: </strong>${checkout?.totalPrice}</h5>
                 <p>Taxes and shipping calculated at checkout</p>
                 <Link to={`/`}><p>Check Out</p></Link>
+            </div>
+            <div className={styles.cartFooter}>
+                <div>
+                    <button onClick={() => navigate(-1)}>
+                        Continue Shopping
+                    </button>
+                </div>
+                <div>
+                    {!!checkout?.webUrl &&
+                    <button onClick={() => {
+                        window.location.href = checkout.webUrl
+                    }}>Checkout</button>
+                    }
+
+                </div>
+
             </div>
         </section>
     )

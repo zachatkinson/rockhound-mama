@@ -10,6 +10,7 @@ const CategoryFilterItem = ({title, id}) => {
     const qs = queryString.parse(search)
     const collectionIds = qs.c?.split(',').filter(c => !!c) || []
     const checked = collectionIds?.find(collectionId => collectionId === id)
+    const searchTerm = qs.s
 
     const onClick = () => {
         let navigateTo = '/all-products'
@@ -25,9 +26,14 @@ const CategoryFilterItem = ({title, id}) => {
             newIds = collectionIds.map(collectionId => encodeURIComponent(collectionId))
 
         }
-        if(newIds.length){
+        if(newIds.length && !searchTerm){
             navigate(`${navigateTo}?c=${newIds.join(',')}`)
-        } else{
+        }else if(newIds.length && searchTerm){
+            navigate(`${navigateTo}?c=${newIds.join(',')}&s=${encodeURIComponent(searchTerm)}`)
+        }else if(!newIds.length && searchTerm){
+            navigate(`${navigateTo}?s=${searchTerm}`)
+        }
+        else{
             navigate(`${navigateTo}`)
         }
 

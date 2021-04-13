@@ -17,6 +17,8 @@ const AllProducts = () => {
     const selectedCollectionIds = qs.c?.split(',').filter(c => !!c) || []
     const selectedCollectionIdsMap = {}
 
+    const searchTerm = qs.s
+
     selectedCollectionIds.forEach(collectionId => {
         selectedCollectionIdsMap[collectionId] = true
     })
@@ -43,21 +45,50 @@ const AllProducts = () => {
         }
         return true
     }
-    const filteredProducts = products.filter(filterByCategory)
+    const filterBySearchTerm = (product) => {
+        if(searchTerm){
+            return product.title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0
+        }
+        return true
+    }
+    const filteredProducts = products.filter(filterByCategory).filter(filterBySearchTerm)
     return(
         <Layout>
             <div className={`productsContent`}>
                 <div className={`productsHeader`}>
                     <div>
-                        <h3>{filteredProducts.length} products</h3>
+                        {!!searchTerm && !!filteredProducts.length && (
+                            <h2>Search Term: <strong>'{searchTerm}'</strong></h2>
+                        )}
+                        {!!filteredProducts.length && (
+                            <h3>{filteredProducts.length} products</h3>
+                        )}
+
                     </div>
                 </div>
                 <div className={`testingFlex`}>
                 <Filters  />
                 </div>
                 <div>
+                    {!!filteredProducts.length && (
+                        <ProductGrid products={filteredProducts} productsPerPage={"50"} />
+                    )}
+                    {!filteredProducts.length && (
+                        <div>
+                        <h3>Sorry, We don't have any results for the search term: <strong>{searchTerm}</strong></h3>
+                        <div>
+                            To help with your search, why not try:
+                        <br />
+                        <ul>
+                        <li>Check your spelling</li>
+                        <li>Use less words</li>
+                        <li>Try a new search term</li>
+                        </ul>
+                        <br />
+                        </div>
+                        </div>
+                    )}
 
-                    <ProductGrid products={filteredProducts} productsPerPage={"50"} />
                 </div>
             </div>
         </Layout>
