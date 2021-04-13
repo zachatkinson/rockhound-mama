@@ -14,7 +14,7 @@ const CollectionCard = ({collection}) => {
                     <h2 className={styles.collectionCardTitle}>
                         {collection.title}
                     </h2>
-                    <Link to={`/collection/${collection.handle}`} className={styles.collectionCardViewButton}>
+                    <Link to={`/all-products?c=${collection.handle}`} className={styles.collectionCardViewButton}>
                         Shop Now
                     </Link>
                 </div>
