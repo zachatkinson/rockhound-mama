@@ -1,6 +1,6 @@
 
 const faunadb = require('faunadb')
-const verifyWebhookIntegrity = require('shopify-verify-webook')
+const verifyWebhookIntegrity = require('shopify-verify-webhook')
 
 
 const q = faundadb.query
