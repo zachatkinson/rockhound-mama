@@ -6,6 +6,8 @@ import ProductGrid from "../components/shopify/productGrid/shopify-product-grid"
 import queryString from "query-string"
 import {useLocation} from "@reach/router"
 
+import SEO from "../components/seo"
+
 const AllProducts = () => {
 
     const {products, collections} = React.useContext(ProductContext)
@@ -54,6 +56,7 @@ const AllProducts = () => {
     const filteredProducts = products.filter(filterByCategory).filter(filterBySearchTerm)
     return(
         <Layout>
+            <SEO title="Products" />
             <div className={`productsContent`}>
                 <div className={`productsHeader`}>
                     <div>

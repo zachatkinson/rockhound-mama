@@ -4,6 +4,7 @@ import Image from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+
 import CollectionGrid from "../components/shopify/collectionGrid/shopify-collection-grid";
 
 import {graphql} from "gatsby";
