@@ -5,7 +5,6 @@ import Cart from "./shopify/cart/cart"
 import SVGLogo from "../svg/rhm-logomark_thin.svg"
 import Search from "./search/search";
 
-import {GiHamburgerMenu} from "react-icons/all";
 
 const Header = ({ siteTitle }) => (
   <header

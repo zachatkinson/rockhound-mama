@@ -1,7 +1,9 @@
 import React from "react"
 import {FaShoppingCart} from "react-icons/all"
 import CartContext from "../context/CartContext";
-import styles from "./cart.module.scss"
+
+import {CartIcon, QuantityIcon, CartWrap, CartCounts} from "./styles"
+
 
 const Cart = () => {
     const {checkout} = React.useContext(CartContext)
@@ -12,12 +14,12 @@ const Cart = () => {
         })
     }
     return(
-        <div className={styles.cartWrap}>
-            <div className={styles.cartIcon}>
-            <FaShoppingCart size ={`1.5rem`} /><sub className={styles.quantityIcon}>{totalQuantity}</sub>
-            </div>
-            <div className={styles.cartCounts}> ${checkout?.totalPrice || `0.00`}</div>
-        </div>
+        <CartWrap>
+            <CartIcon>
+                <FaShoppingCart size ={`1.5rem`} /><QuantityIcon>{totalQuantity}</QuantityIcon>
+            </CartIcon>
+            <CartCounts> ${checkout?.totalPrice || `0.00`}</CartCounts>
+        </CartWrap>
     )
 }
 
