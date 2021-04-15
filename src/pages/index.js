@@ -2,7 +2,7 @@ import React from "react"
 
 import Image from "../components/image"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 
 import CollectionGrid from "../components/shopify/collectionGrid/shopify-collection-grid";
@@ -24,7 +24,7 @@ const IndexPage = ({data}) => {
     return (
 
         <Layout>
-            <SEO title="Home"/>
+            <Seo title="Home"/>
             <CollectionGrid collections={collections} />
             <h2>Latest Products</h2>
             <ProductGrid products={products} />

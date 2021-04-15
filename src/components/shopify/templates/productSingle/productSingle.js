@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby'
 import {navigate, useLocation} from "@reach/router";
 import queryString from "query-string"
 
-import SEO from '../../../seo'
+import Seo from '../../../seo'
 import Layout from '../../../layout'
 
 import styles from './productSingle.module.scss'
@@ -54,7 +54,7 @@ const ProductPage = ({ data }) => {
     return (
         <>
             <Layout>
-                <SEO title={staticProduct.title} description={staticProduct.description} />
+                <Seo title={staticProduct.title} description={staticProduct.description} />
                 <div className={styles.productWrapper}>
                     <ImageGallery
                         selectedVariantImageId={selectedVariant?.image.id}
