@@ -29,14 +29,6 @@ export const CartItem = styled.div`
     padding-bottom: 1rem;
 `
 
-export const CartQuantityHeader = styled.div`
-    display: none;
-`
-
-export const CartTotalHeader = styled.div`
-    display: none;
-`
-
 export const ItemDetails = styled.div`
     padding-left: 0.25rem;
     padding-right: 0.25rem;

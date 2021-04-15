@@ -10,8 +10,7 @@ import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 
 import {navigate} from "@reach/router";
 
-import {CartFooter, CartGreeting, CartHeading, CartItem, CartQuantityHeader, CartTotalHeader, ItemDetails, ItemGrid, ItemPic, ItemPrice, ItemProductInfo, ItemTitle, VariantTitle} from "./styles"
-import Cart from "../cart/cart";
+import {CartFooter, CartGreeting, CartHeading, CartItem, ItemDetails, ItemGrid, ItemPic, ItemPrice, ItemProductInfo, ItemTitle, VariantTitle} from "./styles"
 
 
 const CartContents = () => {
