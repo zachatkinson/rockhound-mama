@@ -10,6 +10,9 @@ import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 
 import {navigate} from "@reach/router";
 
+import {CartFooter, CartGreeting, CartHeading, CartItem, CartQuantityHeader, CartTotalHeader, ItemDetails, ItemGrid, ItemPic, ItemPrice, ItemProductInfo, ItemTitle, VariantTitle} from "./styles"
+import Cart from "../cart/cart";
+
 
 const CartContents = () => {
     const {checkout, updateLineItem} = React.useContext(CartContext)
@@ -18,69 +21,67 @@ const CartContents = () => {
     }
     return (
         <section>
-            <div className={styles.cartGreeting}>
+            <CartGreeting>
                 <h1>Your Cart</h1>
                 <Link to={`/`}><p>Continue Shopping</p></Link>
-            </div>
-            <div className={styles.itemGrid}>
-                <div className={styles.cartHeading}>
+            </CartGreeting>
+            <ItemGrid>
+                <CartHeading>
                     <div className={styles.cartProductHeader}>
                         Product
                     </div>
                     <div className={styles.cartPriceHeader}>
                         Price
                     </div>
-                </div>
+                </CartHeading>
 
             {checkout?.lineItems?.map(lineItem => {
                 return (
-                    <div className={styles.cartItem} key={lineItem.variant.id}>
-                        <div className={styles.itemProductInfo}>
-                            <div className={styles.itemPic}>
+                    <CartItem key={lineItem.variant.id}>
+                        <ItemProductInfo>
+                            <ItemPic>
                                 <img src={lineItem.variant.image.src} width={`60`} height={`60`} alt={lineItem.title}/>
-                            </div>
-                            <div className={styles.itemDetails}>
-                                <div className={styles.itemTitle}>
+                            </ItemPic>
+                            <ItemDetails>
+                                <ItemTitle>
                                     <h6>{lineItem.title}</h6>
                                     {(lineItem.variant.title !== "Default Title") &&
-                                    <p className={styles.styleType}>Style: {lineItem.variant.title}</p>
+                                    <VariantTitle>Style: {lineItem.variant.title}</VariantTitle>
                                     }
                                     <RemoveLineItem  lineItemId={lineItem.id} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.itemPrices}>
+                                </ItemTitle>
+                            </ItemDetails>
+                        </ItemProductInfo>
+                        <ItemPrice>
                             <p>${lineItem.variant.price}</p><br />
                             Quantity:
                                 <CartQuantityAdjuster item={lineItem} onAdjust={handleAdjustQuantity} />
                                 <p>Total: ${(lineItem.variant.price * lineItem.quantity).toFixed(2)}</p>
-                        </div>
+                        </ItemPrice>
 
-                    </div>
+                    </CartItem>
                 )
             })}
-            </div>
-            <div className={styles.cartGreeting}>
+            </ItemGrid>
+            <CartGreeting>
                 <h5><strong>Subtotal: </strong>${checkout?.totalPrice}</h5>
                 <p>Taxes and shipping calculated at checkout</p>
-                <div>
+
+            </CartGreeting>
+            <CartFooter>
+
                     <button onClick={() => navigate(-1)}>
                         Continue Shopping
                     </button>
-                </div>
-                <div>
+
                     {!!checkout?.webUrl &&
                     <button onClick={() => {
                         window.location.href = checkout.webUrl
                     }}>Checkout</button>
                     }
 
-                </div>
-            </div>
-            <div className={styles.cartFooter}>
 
-
-            </div>
+            </CartFooter>
         </section>
     )
 }
