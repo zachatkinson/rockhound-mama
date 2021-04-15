@@ -4,7 +4,7 @@ import styles from "./shopify-filters.module.scss"
 import CategoryFilterItem from "./categoryFilterItem/shopify-category-filter-item";
 
 const Filters = () => {
-    const {collections, products} = React.useContext(ProductContext)
+    const {collections, /*products*/} = React.useContext(ProductContext)
 
 
 

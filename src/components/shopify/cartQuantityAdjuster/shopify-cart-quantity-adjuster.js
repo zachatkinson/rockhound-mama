@@ -1,5 +1,6 @@
 import React from "react"
-import styles from "./shopify-cart-quantity-adjuster.module.scss"
+
+import {AdjustDecrement, AdjustIncrement, CurrentQuantity, QuantityAdjuster} from "./styles";
 
 const CartQuantityAdjuster = ({item, onAdjust}) => {
    const {quantity} = item
@@ -10,11 +11,11 @@ const CartQuantityAdjuster = ({item, onAdjust}) => {
         onAdjust({variantId: item.variant.id, quantity: 1})
     }
     return(
-        <div className={styles.quantityAdjuster}>
-            <div className={styles.decrementQuantity} onClick={handleDecrementQuantity} onKeyPress={handleDecrementQuantity} role={`button`} tabIndex={0}>-</div>
-            <div className={styles.currentQuantity}>{quantity}</div>
-            <div className={styles.incrementQuantity} onClick={handleIncrementQuantity} onKeyPress={handleIncrementQuantity} role={`button`} tabIndex={0}>+</div>
-        </div>
+        <QuantityAdjuster>
+            <AdjustDecrement onClick={handleDecrementQuantity} onKeyPress={handleDecrementQuantity} role={`button`} tabIndex={0}>-</AdjustDecrement>
+            <CurrentQuantity>{quantity}</CurrentQuantity>
+            <AdjustIncrement onClick={handleIncrementQuantity} onKeyPress={handleIncrementQuantity} role={`button`} tabIndex={0}>+</AdjustIncrement>
+        </QuantityAdjuster>
     )
 }
 

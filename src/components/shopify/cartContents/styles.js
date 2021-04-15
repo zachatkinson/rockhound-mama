@@ -4,6 +4,7 @@ export const CartFooter = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 `
 
 export const CartGreeting = styled.div`
