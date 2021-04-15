@@ -3,7 +3,6 @@ import CartContext from "../context/CartContext"
 
 import CartQuantityAdjuster from "../cartQuantityAdjuster/shopify-cart-quantity-adjuster";
 
-import styles from "./shopify-cart-contents.module.scss"
 import {Link} from "gatsby"
 import "gatsby-image"
 import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
@@ -11,6 +10,7 @@ import RemoveLineItem from "../removeLineItem/shopify-remove-line-item";
 import {navigate} from "@reach/router";
 
 import {CartFooter, CartGreeting, CartHeading, CartItem, ItemDetails, ItemGrid, ItemPic, ItemPrice, ItemProductInfo, ItemTitle, VariantTitle} from "./styles"
+
 
 
 const CartContents = () => {
@@ -26,10 +26,10 @@ const CartContents = () => {
             </CartGreeting>
             <ItemGrid>
                 <CartHeading>
-                    <div className={styles.cartProductHeader}>
+                    <div>
                         Product
                     </div>
-                    <div className={styles.cartPriceHeader}>
+                    <div>
                         Price
                     </div>
                 </CartHeading>
