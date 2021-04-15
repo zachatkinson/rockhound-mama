@@ -1,26 +1,25 @@
 import React from "react"
-import {Link} from "gatsby"
 
-import styles from "./shopify-collection-card.module.scss"
+import {CollectionCardContent, CollectionCardTitle, CollectionCardViewButton, CollectionCardWrap} from "./styles";
 
 import BackgroundImage from 'gatsby-background-image'
 
 const CollectionCard = ({collection}) => {
 
     return (
-        <div className={styles.collectionCard}>
+        <CollectionCardWrap>
             <BackgroundImage fluid={collection.image.localFile.childImageSharp.fluid}>
-                <div className={styles.collectionCardContent}>
-                    <h2 className={styles.collectionCardTitle}>
+                <CollectionCardContent>
+                    <CollectionCardTitle>
                         {collection.title}
-                    </h2>
-                    <Link to={`/all-products?c=${encodeURIComponent(collection.handle)}`} className={styles.collectionCardViewButton}>
-                        Shop Now
-                    </Link>
-                </div>
+                    </CollectionCardTitle>
+                        <CollectionCardViewButton aria-label={`Shop ${collection.title}`} to={`/all-products?c=${encodeURIComponent(collection.handle)}`} >
+                            Shop Now
+                        </CollectionCardViewButton>
+                </CollectionCardContent>
             </BackgroundImage>
 
-        </div>
+        </CollectionCardWrap>
     )
 
 }
