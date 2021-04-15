@@ -19,7 +19,7 @@ const Search = () => {
     return (
     <SearchForm onSubmit={handleSubmit}>
         <input value={searchTerm} className={`search`} placeholder={`Search`} onChange={(e) => setSearchTerm(e.currentTarget.value)}  />
-        <button name={`Search Button`}>
+        <button aria-label={`Search Button`}>
             <FaSearch />
         </button>
     </SearchForm>
