@@ -10,13 +10,13 @@ const CollectionGrid = ({collections}) => {
     const remainingCollections= collections?.filter(collection => collection.title !== `Bundles`)
     return (
         <AllCollections>
-
+            {!!bundleCollection &&
             <CollectionCard
                 collection={bundleCollection}
                 key={bundleCollection.shopifyId}
                 className={`lead-img`}
             />
-
+            }
             <RemainingCollections>
 
                 {remainingCollections?.map(collection => (
