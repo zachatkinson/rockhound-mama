@@ -3,6 +3,7 @@ import styles from "./shopify-category-filter-item.module.scss"
 import Checkbox from "../../../checkbox/checkbox";
 import {navigate, useLocation} from "@reach/router"
 import queryString from 'query-string'
+import {CategoryItemWrap} from "./styles";
 
 
 const CategoryFilterItem = ({title, id}) => {
@@ -40,10 +41,10 @@ const CategoryFilterItem = ({title, id}) => {
 
     }
     return (
-    <div className={styles.categoryFilterItem} onClick={onClick} onKeyPress={onClick} role={`button`} tabIndex={0}>
+    <CategoryItemWrap onClick={onClick} onKeyPress={onClick} role={`button`} tabIndex={0}>
         <Checkbox checked={collectionIds.find(cId => cId === id )}  />
         <div>{title}</div>
-    </div>
+    </CategoryItemWrap>
     )
 }
 

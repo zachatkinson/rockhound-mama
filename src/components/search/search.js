@@ -3,7 +3,7 @@ import {FaSearch} from "@react-icons/all-files/fa/FaSearch";
 import {navigate, useLocation} from "@reach/router";
 import queryString from "query-string"
 
-import {SearchForm} from "./styles"
+import {SearchButton, SearchForm, SearchInput} from "./styles"
 const Search = () => {
     const [searchTerm, setSearchTerm] = React.useState('')
     const {search} = useLocation()
@@ -18,10 +18,10 @@ const Search = () => {
     }
     return (
     <SearchForm onSubmit={handleSubmit}>
-        <input value={searchTerm} className={`search`} placeholder={`Search`} onChange={(e) => setSearchTerm(e.currentTarget.value)}  />
-        <button aria-label={`Search Button`}>
+        <SearchInput value={searchTerm} className={`search`} placeholder={`Search`} onChange={(e) => setSearchTerm(e.currentTarget.value)}  />
+        <SearchButton aria-label={`Search Button`}>
             <FaSearch />
-        </button>
+        </SearchButton>
     </SearchForm>
 )
 }
