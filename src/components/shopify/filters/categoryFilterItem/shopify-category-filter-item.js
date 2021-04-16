@@ -1,5 +1,4 @@
 import React from "react"
-import styles from "./shopify-category-filter-item.module.scss"
 import Checkbox from "../../../checkbox/checkbox";
 import {navigate, useLocation} from "@reach/router"
 import queryString from 'query-string'

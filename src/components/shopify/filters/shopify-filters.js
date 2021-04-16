@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductContext from "../context/ProductContext";
-import styles from "./shopify-filters.module.scss"
 import CategoryFilterItem from "./categoryFilterItem/shopify-category-filter-item";
+import {CategoryList, FilterBox} from "./styles";
 
 const Filters = () => {
     const {collections, /*products*/} = React.useContext(ProductContext)
@@ -9,17 +9,17 @@ const Filters = () => {
 
 
     return (
-        <div className={styles.filterBox}>
+        <FilterBox>
 
             <strong>Categories</strong>
-            <div className={styles.categoryList}>
+            <CategoryList>
         {collections?.map(collection => (
                     <CategoryFilterItem title={collection.title} id={collection.handle} />
                 )
             )}
-            </div>
+            </CategoryList>
 
-        </div>
+        </FilterBox>
     )
 }
 
