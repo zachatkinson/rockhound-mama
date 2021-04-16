@@ -1,4 +1,5 @@
 import React from "react"
+import {FaSearch} from "@react-icons/all-files/fa/FaSearch";
 import {navigate, useLocation} from "@reach/router";
 import queryString from "query-string"
 
@@ -19,7 +20,7 @@ const Search = () => {
     <SearchForm onSubmit={handleSubmit}>
         <input value={searchTerm} className={`search`} placeholder={`Search`} onChange={(e) => setSearchTerm(e.currentTarget.value)}  />
         <button aria-label={`Search Button`}>
-           Search
+            <FaSearch />
         </button>
     </SearchForm>
 )
