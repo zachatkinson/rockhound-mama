@@ -1,4 +1,5 @@
 import React from "react"
+import {FaShoppingCart} from "@react-icons/all-files/fa/FaShoppingCart";
 import CartContext from "../context/CartContext";
 
 import {CartIcon, QuantityIcon, CartWrap, CartCounts} from "./styles"
@@ -15,7 +16,7 @@ const Cart = () => {
     return(
         <CartWrap>
             <CartIcon>
-                <div>CART</div>
+                <FaShoppingCart size ={`1.5rem`} />
                 <QuantityIcon>{totalQuantity}</QuantityIcon>
             </CartIcon>
             <CartCounts> ${checkout?.totalPrice || `0.00`}</CartCounts>
