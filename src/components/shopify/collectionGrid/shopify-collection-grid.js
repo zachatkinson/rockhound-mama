@@ -14,6 +14,7 @@ const CollectionGrid = ({collections}) => {
             <CollectionCard
                 collection={bundleCollection}
                 key={bundleCollection.shopifyId}
+                className={`lead-img`}
             />
             }
             <RemainingCollections>
