@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 
-import {thumbWrap} from "./shopify-image-thumbnail.module.css"
+import {ThumbWrap} from "./styles";
 
 const ImageThumbnail = ({isActive, onClick, image}) => {
 
@@ -9,8 +9,7 @@ const ImageThumbnail = ({isActive, onClick, image}) => {
         onClick(image);
     }
 return (
-    <div
-        className={thumbWrap}
+    <ThumbWrap
         onClick={handleClick}
         onKeyDown={handleClick}
         role={`button`}
@@ -18,7 +17,7 @@ return (
     >
 
         <Img fluid={image.localFile.childImageSharp.fluid} />
-    </div>
+    </ThumbWrap>
 )
 }
 export default ImageThumbnail
