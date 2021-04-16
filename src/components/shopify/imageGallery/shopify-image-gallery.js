@@ -1,8 +1,8 @@
 import React from "react"
-import styles from "../imageGallery/shopify-image-gallery.module.scss"
 import Img from "gatsby-image"
 
 import ImageThumbnail from "./imageThumbnail/shopify-image-thumbnail"
+import {ThumbGrid} from "./styles"
 
 const ImageGallery = ({selectedVariantImageId, images}) => {
     const[activeImageThumbnail, setActiveImageThumbnail] = React.useState(
@@ -16,13 +16,12 @@ const ImageGallery = ({selectedVariantImageId, images}) => {
         setActiveImageThumbnail(image)
     }
     return(
-        <div className={styles.imageGallery}>
+        <div>
                     <Img
-                        className={styles.mainImage}
                         fluid={activeImageThumbnail.localFile.childImageSharp.fluid}
                         alt={`product.title`}
                     />
-            <div className={styles.thumbGrid}>
+            <ThumbGrid>
                 {images.map((image) => {
                     return(
                         <ImageThumbnail
@@ -33,7 +32,7 @@ const ImageGallery = ({selectedVariantImageId, images}) => {
                     )
                 })
                 }
-            </div>
+            </ThumbGrid>
         </div>
 
     )
